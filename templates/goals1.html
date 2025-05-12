@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "header.html" %}
+    {% if current_user.is_authorized %}
+        <title>{{ current_user.username }} - Goals</title>
+    {% else %}
+        <title>Your Goals</title>
+    {% endif %}
+    <link href="../static/css/goals1.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class='container'>
+        <div class="first-heading">
+            <h2>Add your goals here and then get them off</h2>
+        </div>
+
+        <div class="add-task-container" id='myBox'>
+            <img src="../static/img/plus-circle-white.png" alt="plus circle white" class="white-circle">
+            <div class='add-task' onclick="showDiv()">Add Task</div>
+        </div>
+        <form method='POST' action={{url_for('goals1')}}>
+
+        <div class='Task-editor' id='cancel-box' style="display: none;">
+            <textarea class='placeholder' id='placeholder'name='task' rows="1" placeholder="What are you working on?"></textarea>
+
+            <h4 class='est-pomodoros'>Est Pomodors</h4>
+            <input class='number-of-pomodoros' type="number" min="1" max="100" name='number' />
+            <br/>
+
+            <a href="#" class='link-of-adding-notes' onclick="showNotes()" id='notes'>+Add Notes</a>
+
+            <div class='placeholder' id='notes-div' style="width:500px; height:500px; display:none;"></div>
+
+            <div id='call-to-action'>
+                <button class='cancel-button' onclick='hideDiv()'>Cancel</button>
+                <button class='save-button' type='submit'>Save</button>
+            </div>
+        </form>
+        </div>
+    </div>
+
+    <!-- Appended goals list with check and cross buttons -->
+    <div class="container">
+        <div class="first-heading">
+            <h2>Your Goals</h2>
+        </div>
+
+        {% if goals and number_of_goals|length > 0 %}
+            {% for goal in goals %}
+                <div class="goal-item {% if goal.completed %}completed{% endif %}" data-goal-id="{{ goal.id }}">
+                    <div class="goal-text">{{ goal.goal }}</div>
+                    <div class="goal-actions">
+                        {% if not goal.completed %}
+                            <button class="check-mark" title="Mark as completed">&#10003;</button>
+                            <button class="cross-mark" title="Delete goal">&#10007;</button>
+                        {% else %}
+                            <button class="cross-mark" title="Delete goal">&#10007;</button>
+                        {% endif %}
+                    </div>
+                    <div class="goal-progress">
+                        {{ goal.estimated_time }} / {{ goal.estimated_time }} Pomodoros
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No goals found.</p>
+        {% endif %}
+    </div>
+
+<script>
+    window.onload = function () {
+        const taskBox = document.getElementById("cancel-box");
+        const openBtn = document.getElementById("myBox");
+        const cancelBtn = document.querySelector(".cancel-button");
+        const textarea = document.getElementById("placeholder");
+        const notes = document.getElementById("notes")
+        const notes_div = document.getElementById("notes-div")
+
+        openBtn.onclick = function () {
+            taskBox.style.display = "block";
+        };
+
+        cancelBtn.onclick = function () {
+            taskBox.style.display = "none";
+        };
+
+        textarea.addEventListener("input", () => {
+            textarea.style.height = "auto";
+            textarea.style.height = textarea.scrollHeight + "px";
+        });
+
+        // New script for goals check and cross buttons
+        const goals = document.querySelectorAll('.goal-item');
+
+        goals.forEach(goal => {
+            const checkBtn = goal.querySelector('.check-mark');
+            const crossBtn = goal.querySelector('.cross-mark');
+            const goalId = goal.getAttribute('data-goal-id');
+
+            if (checkBtn) {
+                checkBtn.addEventListener('click', function() {
+                    updateTaskStatus(goalId, true, goal);
+                });
+            }
+
+            if (crossBtn) {
+                crossBtn.addEventListener('click', function() {
+                    updateTaskStatus(goalId, false, goal);
+                });
+            }
+        });
+
+        function updateTaskStatus(goalId, status, goalElement) {
+            fetch('/update_task_status', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    'goal_id': goalId,
+                    'status': status
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    if (status) {
+                        goalElement.classList.add('completed');
+                        const checkBtn = goalElement.querySelector('.check-mark');
+                        if (checkBtn) checkBtn.disabled = true;
+                    } else {
+                        goalElement.remove();
+                    }
+                } else {
+                    alert('Failed to update task status.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error updating task status.');
+            });
+        }
+    };
+
+    function showDiv() {
+        document.getElementById("cancel-box").style.display = "block";
+    }
+
+    function hideDiv() {
+        document.getElementById("cancel-box").style.display = "none";
+        document.getElementById("notes").style.display = "none";
+    }
+
+    function showNotes() {
+        document.getElementById("notes-div").style.display = "block";
+    }
+
+</script>
+
+</body>
+</html>

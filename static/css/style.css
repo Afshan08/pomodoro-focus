@@ -1,0 +1,252 @@
+:root {
+    --primary-color: #D84315; /* deep tomato red */
+    --accent-color: #FF7043; /* warm orange */
+    --success-color: #81C784; /* soft green */
+    --dark-text: #3E2723; /* dark brown */
+    --light-text: #FFF3E0; /* light cream */
+    --font-main: 'Poppins', sans-serif;
+    --font-secondary: 'Roboto', sans-serif;
+}
+
+/* Reset & Base Styles */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-text);
+    color: var(--dark-text);
+    font-family: var(--font-secondary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Navbar */
+ul.navbar {
+    background-color: var(--primary-color);
+    display: flex;
+    padding: 20px;
+    margin: 0;
+    align-items: center;
+    /* box-shadow: 0 4px 6px rgba(216, 67, 21, 0.7); */
+}
+
+.navbar li {
+    list-style: none;
+    margin: 0 15px;
+}
+
+.navbar a {
+    color: var(--light-text);
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Logo */
+.logo {
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: 24px;
+}
+
+/* Align navbar elements */
+.navbar-element {
+    display: flex;
+}
+
+.navbar-element:first-child {
+    margin-right: auto;
+}
+
+/* Headings */
+.heading {
+    font-family: var(--font-main);
+    font-weight: 800;
+    font-size: 50px;
+    color: var(--dark-text);
+    text-align: center;
+    margin: 70px auto 0;
+    padding: 0 20px;
+}
+
+.sub-heading {
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    font-size: 25px;
+    color: var(--accent-color);
+    text-align: center;
+    margin: 10px auto 0;
+    padding: 0 20px;
+}
+
+/* Button */
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--dark-text);
+    font-size: 18px;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    margin: 30px auto 150px;
+    display: block;
+    width: 150px;
+    box-shadow: 0 4px 12px rgba(255, 112, 67, 0.5);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: var(--success-color);
+    color: var(--light-text);
+    transform: scale(1.05);
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+}
+
+.hero-section {
+    flex: 1;
+    padding: 20px;
+}
+
+.image-of-happy-tomato {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Features Section */
+.feature {
+    font-family: var(--font-secondary);
+    background-color: #BF360C; /* deep warm red */
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(183, 54, 12, 0.7);
+}
+
+.headings-feature {
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: 42px;
+    color: var(--light-text);
+    text-align: center;
+    width: 80%;
+    padding-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Questions */
+.questions {
+    margin-top: 60px;
+    padding-left: 20px;
+    width: 70%;
+    border-left: 5px solid var(--accent-color);
+    line-height: 35.2pt;
+}
+
+.questions > h4 {
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    font-size: 28px;
+    color: var(--accent-color);
+    margin-top: 0;
+    padding-left: 15px;
+}
+
+.questions > p {
+    font-size: 18px;
+    color: var(--light-text);
+    text-align: left;
+    padding-left: 15px;
+    margin: 10px 0 0 0;
+    width: 100%;
+}
+
+.questions > ol.use-pomodoro {
+    font-size: 18px;
+    color: var(--light-text);
+    padding-left: 40px;
+    margin: 10px 0 0 0;
+    width: 100%;
+}
+
+/* Colored border */
+.colored-bor {
+    width: 50px;
+    height: 4px;
+    background-color: var(--accent-color);
+    margin: 10px 0 20px 15px;
+    border-radius: 2px;
+}
+
+/* Footer */
+footer {
+    padding: 100px 20px;
+    text-align: center;
+    background-color: var(--light-text);
+    color: var(--dark-text);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .heading,
+    .sub-heading,
+    .btn-primary,
+    img,
+    .headings-feature,
+    .questions > h4,
+    .questions > p {
+        text-align: center;
+    }
+
+    .hero {
+        flex-direction: column;
+    }
+
+    .hero-section {
+        width: 100%;
+    }
+
+    .image-of-happy-tomato {
+        width: 100%;
+        align-items: center;
+    }
+
+    .btn-primary {
+        align-items: center;
+        text-align: center;
+    }
+
+    .questions {
+        width: 100%;
+        border-left: none;
+        padding: 0 10px;
+    }
+
+    .questions > h4,
+    .questions > p,
+    .questions > ol.use-pomodoro {
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .colored-bor {
+        margin-left: 0;
+        margin-bottom: 15px;
+        width: 40px;
+    }
+}

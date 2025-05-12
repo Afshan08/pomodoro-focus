@@ -1,0 +1,156 @@
+
+ul.navbar {
+    background-color: #E74C3C;
+    display: flex;
+    padding: 20px;
+    margin: 0;
+    align-items: center;
+}
+
+.navbar li {
+    
+    margin-top: 10px;
+    list-style: none;
+    margin: 0 15px;
+}
+
+.navbar a {
+    
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+
+.navbar-element {
+
+    display: flex;
+}
+
+.navbar-element:first-child {
+    margin-right: auto;
+}
+
+.logo {
+    font-family: 'Poppins';
+    font-weight: 700;
+}
+
+body{
+    margin:0;
+    padding:0;
+    background-color: #FAF9F6;
+}
+
+.heading{
+    font-family: 'Poppins';
+    font-weight: 800;
+    font-size: 50px;
+    margin-left: 200px;
+    margin-top: 70px;
+    color:#2C3E50;
+    padding:0 20px;
+    margin-bottom: 0;
+}
+
+.sub-heading{
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 25px;
+    color:#2ECC71;
+    margin-left: 200px;
+    padding: 0 20px ;
+    margin-bottom: 0;
+}
+
+.btn-primary{
+    background-color:#F39C12;
+    margin-left: 220px;
+    padding: 12px;
+    border-width: 0;
+    border-radius: 4px;
+    color:#2C3E50;
+    font-size:20px;
+    margin-top: 30px;
+    margin-bottom: 150px;
+    width:150px;
+    
+}
+
+.btn-primary:hover{
+    background-color: #2ECC71;
+    cursor: pointer;
+    color:#FAF9F6
+}
+
+.hero{
+    display: flex;
+    align-items: center;
+
+}
+
+.hero-section{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    position: relative;
+}
+
+.image-of-happy-tomato{
+    width: 560px;
+    height: auto;
+}
+
+footer{
+    padding:100px;
+    text-align: center;
+    background-color: #E74C3C;
+    color:#FAF9F6
+}
+
+.feature{
+    /* margin-left: 200px; */
+    font-family: 'Roboto';
+    background-color: #2C3E50;
+    padding-top: 100px;
+    justify-content: center;
+}
+
+.headings-feature{
+    font-family: 'Poppins';
+    font-weight: 700;
+    font-size: 40px;
+    margin-left: 170px;
+    width: 60%;
+    color:#F39C12;
+    padding:0 20px;
+    display: flex;
+    
+    
+    
+    
+}
+
+.questions > h4{
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size:30px;
+    color:#F39C12;
+    margin-top: 100px;
+    margin-left: 170px;
+    padding:0 20px;
+}
+
+.questions > p{
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size:20px;
+    color:#FAF9F6;
+    margin-left: 170px;
+    padding:0 20px;
+    width: 50%;
+}

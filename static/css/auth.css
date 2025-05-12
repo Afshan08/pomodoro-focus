@@ -1,0 +1,112 @@
+/* Auth Page Styles */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #FAF9F6;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 40px 0;
+    min-height: 100vh;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.auth-container {
+    background-color: white;
+    padding: 2rem 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    width: 320px;
+    max-width: 90vw;
+    box-sizing: border-box;
+    position: relative;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.auth-heading {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: #D84315; /* deep tomato red */
+    margin-bottom: 1.5rem;
+}
+
+.auth-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #3E2723; /* dark brown */
+    text-align: left;
+}
+
+.auth-input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.auth-button {
+    width: 100%;
+    padding: 0.7rem;
+    background-color: #D84315; /* deep tomato red */
+    border: none;
+    color: #FAF9F6; /* light cream */
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.auth-button:hover {
+    background-color: #FF7043; /* warm orange */
+}
+
+/* Error Messages */
+.error-message {
+    color: #D84315;
+    background-color: #FFEBEE;
+    border: 1px solid #D84315;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Tomato Images */
+.auth-tomato-img {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    opacity: 0.85;
+    user-select: none;
+}
+
+.auth-tomato-top-left {
+    top: -40px;
+    left: -40px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .auth-container {
+        width: 90vw;
+        padding: 1.5rem 1.8rem;
+    }
+    .auth-tomato-img {
+        width: 60px;
+        height: 60px;
+    }
+}

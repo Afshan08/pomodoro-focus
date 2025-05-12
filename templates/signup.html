@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="stylesheet" href="../static/css/auth.css" />
+</head>
+<body>
+    <div class="auth-container">
+        <img src="../static/img/happy-removebg-preview.png" alt="Tomato Top Left" class="auth-tomato-img auth-tomato-top-left" />
+        
+        <h2 class="auth-heading">Sign Up</h2>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <p class="{{ 'error-message' if category == 'error' else '' }}">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <form method="POST" action="{{ url_for('signup') }}">
+            <label for="name" class="auth-label">Name</label>
+            <input type="text" id="name" name="name" required autofocus class="auth-input" />
+
+            <label for="username" class="auth-label">Username</label>
+            <input type="text" id="username" name="username" required class="auth-input" />
+            
+            <label for="email" class="auth-label">Email</label>
+            <input type="email" id="email" name="email" required class="auth-input" />
+            
+            <label for="password" class="auth-label">Password</label>
+            <input type="password" id="password" name="password" required class="auth-input" />
+            
+            <label for="confirm_password" class="auth-label">Confirm Password</label>
+            <input type="password" id="confirm_password" name="confirm_password" required class="auth-input" />
+            
+            <button type="submit" class="btn-primary auth-button">Sign Up</button>
+
+        </form>
+
+    </div>
+</body>
+</html>
