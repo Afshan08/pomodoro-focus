@@ -14,10 +14,10 @@
         <nav class='navbar'>
             <ul class='navbar'>
                 <li class='navbar-element'><a href="{{url_for('timer')}}" class='logo'>Pomodoro focus</a></li>
-                <li class='navbar-element'><a href="{{url_for('timer')}}">{{current_user.username }}</a></li>
-                <li class='navbar-element'><a href="#">Settings</a></li>
-                <li class='navbar-element'><a href="#">Stats</a></li>
+                <li class='navbar-element'><a href="{{url_for('timer')}}">{{current_user.username }}</a></li>>
+                <li class='navbar-element'><a href="{{url_for("logout")}}>Logout</a></li>
                 <li class='navbar-element'><a href="{{url_for('goals')}}">Goals</a></li>
+                
             </ul>
         </nav>
     {% else %}
