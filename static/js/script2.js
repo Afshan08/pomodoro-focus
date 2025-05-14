@@ -239,6 +239,7 @@ async function shortBreak() {
     currentSessionType = 'short_break';
     currentSessionId = null;
     await sendTimerData('inprogress');
+    shortBreak();
 }
 
 async function longBreak() {
