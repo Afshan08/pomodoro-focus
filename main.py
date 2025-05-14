@@ -295,7 +295,7 @@ def timer_session():
     
 @app.route("/timer")
 def timer():
-    return render_template("timer.html", short_break_duration=5*,60 long_break_duration=15*60, focus_session=25*60)
+    return render_template("timer.html", short_break_duration=5*60, long_break_duration=15*60, focus_session=25*60)
 
 if __name__ == "__main__":
     with app.app_context():
