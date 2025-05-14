@@ -194,6 +194,7 @@ function resetTimer() {
     updateDisplay();
     setBodyClass('focus');
     setActiveMode('focus');
+    shortBreak();
     currentSessionId = null; // Reset session ID on reset
 }
 
@@ -239,7 +240,6 @@ async function shortBreak() {
     currentSessionType = 'short_break';
     currentSessionId = null;
     await sendTimerData('inprogress');
-    shortBreak();
 }
 
 async function longBreak() {
