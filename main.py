@@ -110,6 +110,13 @@ def home_page():
     return render_template('index.html')
 
 
+@app.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    session.pop('user_id', None)
+    flash('You have been logged out.', 'info')
+    return redirect(url_for('login'))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
