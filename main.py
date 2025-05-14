@@ -6,9 +6,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import os
 import enum
 from sqlalchemy import Enum as SqlEnum
-from dotenv import load_dotenv
-
-load_dotenv()
 
 app = Flask(__name__)
 
